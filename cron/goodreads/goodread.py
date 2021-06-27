@@ -6,6 +6,17 @@ from random import randint
 maxPageNumber = 100
 
 
+class book:
+    def __init__(self, url, name, author, rating, ratingCount, timestamp, listName):
+        self.url = url
+        self.name = name
+        self.author = author
+        self.rating = rating
+        self.ratingCount = ratingCount
+        self.timestamp = timestamp
+        self.listName = listName
+
+
 try:
     # scrape goodreads data into a sqllite database, then dump into google sheet
     # target lists / urls
@@ -35,14 +46,24 @@ try:
         currentpage = 1
         while keepGoing and currentpage <= maxPageNumber:
             # load url
+            parsedBooks = []
+
             pageRequest = requests.get(url+"?page="+str(currentpage))
             pageSoup = BeautifulSoup(pageRequest.content, 'html.parser')
             listName = pageSoup.h1.text
-            
+            # loop through books on page
+            booksOnPage = pageSoup.table.find_all("tr")
+            for book in booksOnPage:
+                # get id from url,
+                url = book.find("a", href=True)["href"]
+                name = book.find('a', attrs={'class': 'bookTitle'}).text
+                author = book.find('a', attrs={'class': 'authorName'}).text
+                ratingText = book.find('span', attrs={'class': 'minirating'}).text
+
             currentpage += 1
         # wait random interval of time, and go to next page
         break  # while debug, just test with one url
 except:
-  print("An exception occurred")
+    print("An exception occurred")
 # loop through each page and scrape book info
 # load into table with timestamp
