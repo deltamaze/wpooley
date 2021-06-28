@@ -2,25 +2,25 @@ import requests
 from bs4 import BeautifulSoup
 from time import sleep
 from random import randint
+from datetime import date
 
 maxPageNumber = 100
 
 
-class book:
-    def __init__(self, url, name, author, rating, ratingCount, timestamp, listName):
-        self.url = url
+class bookModel:
+    def __init__(self, bookurl, name, author, ratingText, timestamp, listName):
+        self.bookurl = bookurl
         self.name = name
         self.author = author
-        self.rating = rating
-        self.ratingCount = ratingCount
+        self.ratingText = ratingText
         self.timestamp = timestamp
         self.listName = listName
 
 
 try:
-    # scrape goodreads data into a sqllite database, then dump into google sheet
     # target lists / urls
-    listUrls = ["https://www.goodreads.com/list/show/7",
+    listUrls = ["https://www.goodreads.com/list/show/3077",
+                "https://www.goodreads.com/list/show/7",
                 "https://www.goodreads.com/list/show/6",
                 "https://www.goodreads.com/list/show/16",
                 "https://www.goodreads.com/list/show/30",
@@ -40,30 +40,35 @@ try:
                 "https://www.goodreads.com/list/show/3077"]
     # get loop through each url
 
+    parsedBooks = []
     for url in listUrls:
         keepGoing = True
         listName = ""
-        currentpage = 1
-        while keepGoing and currentpage <= maxPageNumber:
+        currentPage = 1
+        while keepGoing and currentPage <= maxPageNumber:
             # load url
-            parsedBooks = []
 
-            pageRequest = requests.get(url+"?page="+str(currentpage))
+            pageRequest = requests.get(url+"?page="+str(currentPage))
             pageSoup = BeautifulSoup(pageRequest.content, 'html.parser')
             listName = pageSoup.h1.text
             # loop through books on page
             booksOnPage = pageSoup.table.find_all("tr")
             for book in booksOnPage:
                 # get id from url,
-                url = book.find("a", href=True)["href"]
+                bookurl = book.find("a", href=True)["href"]
                 name = book.find('a', attrs={'class': 'bookTitle'}).text
                 author = book.find('a', attrs={'class': 'authorName'}).text
-                ratingText = book.find('span', attrs={'class': 'minirating'}).text
+                ratingText = book.find(
+                    'span', attrs={'class': 'minirating'}).text
+                thisBook = bookModel(bookurl, name, author, ratingText,
+                                     date.today(), listName)
+                parsedBooks.append(thisBook)
+            print(f"Finished Page {str(currentPage)} for List {listName}")
+            if len(booksOnPage) != 100:
+                keepGoing = False
+            sleep(randint(2, 10))
+            currentPage += 1
 
-            currentpage += 1
         # wait random interval of time, and go to next page
-        break  # while debug, just test with one url
-except:
-    print("An exception occurred")
-# loop through each page and scrape book info
-# load into table with timestamp
+except Exception as ex:
+    print("An exception occurred => " + ex.__str__)
