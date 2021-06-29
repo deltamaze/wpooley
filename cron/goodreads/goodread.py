@@ -1,4 +1,5 @@
 import requests
+import sqlite3
 from bs4 import BeautifulSoup
 from time import sleep
 from random import randint
@@ -39,16 +40,23 @@ try:
                 "https://www.goodreads.com/list/show/3078",
                 "https://www.goodreads.com/list/show/3077"]
     # get loop through each url
-
-    parsedBooks = []
-    for url in listUrls:
-        keepGoing = True
+    webRequestMadeThisExecution = 0
+    targetListIndex = 0
+    targetPage = 1
+    conn = sqlite3.connect('sqlite.db')
+    # get last polled list item and page number
+    while webRequestMadeThisExecution < 100:
+        targetListIndex += 1
+        areThereMorePagesToPullForThisList = True
         listName = ""
-        currentPage = 1
-        while keepGoing and currentPage <= maxPageNumber:
+        while (areThereMorePagesToPullForThisList
+                and targetPage <= maxPageNumber
+                and webRequestMadeThisExecution <= 100):
             # load url
 
-            pageRequest = requests.get(url+"?page="+str(currentPage))
+            parsedBooks = []
+            pageRequest = (requests.get(listUrls[targetListIndex]
+                                        + "?page="+str(targetPage)))
             pageSoup = BeautifulSoup(pageRequest.content, 'html.parser')
             listName = pageSoup.h1.text
             # loop through books on page
@@ -63,12 +71,17 @@ try:
                 thisBook = bookModel(bookurl, name, author, ratingText,
                                      date.today(), listName)
                 parsedBooks.append(thisBook)
-            print(f"Finished Page {str(currentPage)} for List {listName}")
+            print(f"Finished Page {str(targetPage)} for List {listName}")
+
             if len(booksOnPage) != 100:
-                keepGoing = False
+                areThereMorePagesToPullForThisList = False
             sleep(randint(2, 10))
-            currentPage += 1
+            targetPage += 1
+            # save results to sqllite
+            # update sqllite table to indicate list id and page number
 
         # wait random interval of time, and go to next page
+    conn.close()
 except Exception as ex:
     print("An exception occurred => " + ex.__str__)
+# https://github.com/maddieannette/mycity-restaurants/blob/main/data-retrieve-app/main.py for sqllite
