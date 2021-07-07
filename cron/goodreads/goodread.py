@@ -1,5 +1,5 @@
 import requests
-import sqlite3
+
 from bs4 import BeautifulSoup
 from time import sleep
 from random import randint
@@ -15,7 +15,7 @@ try:
     maxPageNumber = 100
     maxNumberOfWebRequests = 100
     targetListIndex = 0
-    conn = sqlite3.connect('goodreads.db')
+
     # get last polled list item and page number
     while webRequestMadeThisExecution < maxNumberOfWebRequests:
         targetPage = 1
@@ -24,7 +24,6 @@ try:
         listName = ""
         while (areThereMorePagesToPullForThisList):
             # load url
-
             parsedBooks = []
             pageRequest = (requests.get(listUrls[targetListIndex]
                                         + "?page="+str(targetPage)))
@@ -41,9 +40,10 @@ try:
                     'span', attrs={'class': 'minirating'}).text
                 thisBook = grm.bookModel(bookurl, name, author, ratingText,
                                          date.today(), listName)
+                grm.parseRatings(thisBook)
                 parsedBooks.append(thisBook)
+            grm.insertBookArrayIntoDb(parsedBooks)
             print(f"Finished Page {str(targetPage)} for List {listName}")
-
             targetPage += 1
             webRequestMadeThisExecution += 1
             if (len(booksOnPage) != 100
@@ -55,7 +55,7 @@ try:
             # update sqllite table to indicate list id and page number
 
         # wait random interval of time, and go to next page
-    conn.close()
+
 except Exception as ex:
     print("An exception occurred => " + ex.__str__)
 # https://github.com/maddieannette/mycity-restaurants/blob/main/data-retrieve-app/main.py for sqllite

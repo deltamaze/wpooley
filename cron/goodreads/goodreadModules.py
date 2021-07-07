@@ -1,3 +1,6 @@
+import sqlite3
+
+
 class bookModel:
     def __init__(self, bookurl, name, author, ratingText, timestamp, listName):
         self.bookurl = bookurl
@@ -6,6 +9,14 @@ class bookModel:
         self.ratingText = ratingText
         self.timestamp = timestamp
         self.listName = listName
+
+
+def parseRatings(book):
+    return 'TODO'
+
+
+def insertBookArrayIntoDb(books):
+    return 'TODO'
 
 
 def getTargetLists():
