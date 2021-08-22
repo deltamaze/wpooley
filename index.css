@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    font-family: Helvetica, sans-serif, Arial;
+    font-size: 17px;
+}
+
+.navbarClass {
+    overflow: hidden;
+    background-color: white;
+}
+
+.navbarClass a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 34px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbarClass a:hover {
+    color: #0050ff;
+}
+
+.navbarClass a.active {
+    background-color: white;
+    color: black;
+}
+
+.navbarClass .icon {
+    display: none;
+}
+
+a.myName {
+    padding-top: 27px;
+    padding-bottom: 31px;
+}
+
+span.myName {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+@media screen and (max-width: 1000px) {
+    .navbarClass a:not(:first-child) {
+        display: none;
+    }
+    .navbarClass a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .navbarClass.responsive {
+        position: relative;
+    }
+    .navbarClass.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .navbarClass.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
