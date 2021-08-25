@@ -45,6 +45,10 @@ span.myName {
     font-size: 26px;
 }
 
+i.myName {
+    color: #0050ff
+}
+
 @media screen and (max-width: 1000px) {
     .navbarClass a:not(:first-child) {
         display: none;
