@@ -74,3 +74,259 @@ i.myName {
         text-align: left;
     }
 }
+
+.hide {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.fade-in {
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+    height: auto;
+    overflow: auto;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    49% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    50% {
+        opacity: 0;
+        height: auto;
+        overflow: auto;
+    }
+    100% {
+        opacity: 1;
+        height: auto;
+        overflow: auto;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    49% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    50% {
+        opacity: 0;
+        height: auto;
+        overflow: auto;
+    }
+    100% {
+        opacity: 1;
+        height: auto;
+        overflow: auto;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    49% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    50% {
+        opacity: 0;
+        height: auto;
+        overflow: auto;
+    }
+    100% {
+        opacity: 1;
+        height: auto;
+        overflow: auto;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    49% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    50% {
+        opacity: 0;
+        height: auto;
+        overflow: auto;
+    }
+    100% {
+        opacity: 1;
+        height: auto;
+        overflow: auto;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    49% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    50% {
+        opacity: 0;
+        height: auto;
+        overflow: auto;
+    }
+    100% {
+        opacity: 1;
+        height: auto;
+        overflow: auto;
+    }
+}
+
+.fade-out {
+    animation: fadeOut ease 2s;
+    -webkit-animation: fadeOut ease 2s;
+    -moz-animation: fadeOut ease 2s;
+    -o-animation: fadeOut ease 2s;
+    -ms-animation: fadeOut ease 2s;
+    height: 0;
+    overflow: hidden;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        height: auto;
+        overflow: auto;
+    }
+    49% {
+        opacity: 0;
+        height: auto;
+        overflow: auto;
+    }
+    50% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    100% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+@-moz-keyframes fadeOut {
+    0% {
+        opacity: 1;
+        height: auto;
+        overflow: auto;
+    }
+    49% {
+        opacity: 0;
+        height: auto;
+        overflow: auto;
+    }
+    50% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    100% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+        height: auto;
+        overflow: auto;
+    }
+    49% {
+        opacity: 0;
+        height: auto;
+        overflow: auto;
+    }
+    50% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    100% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+@-o-keyframes fadeOut {
+    0% {
+        opacity: 1;
+        height: auto;
+        overflow: auto;
+    }
+    49% {
+        opacity: 0;
+        height: auto;
+        overflow: auto;
+    }
+    50% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    100% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+@-ms-keyframes fadeOut {
+    0% {
+        opacity: 1;
+        height: auto;
+        overflow: auto;
+    }
+    49% {
+        opacity: 0;
+        height: auto;
+        overflow: auto;
+    }
+    50% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    100% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
