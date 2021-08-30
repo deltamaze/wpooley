@@ -18,15 +18,29 @@
             </span>
             <span>/ Software Engineer</span>
         </a>
-        <a href="#aboutMe">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#About" onclick='linkClicked("About")'>About Me</a>
+        <a href="#Projects" onclick='linkClicked("Projects")'>Projects</a>
+        <a href="#Contact" onclick='linkClicked("Contact")'>Contact</a>
         <a href="javascript:void(0);" class="icon" onclick="mobileToggleNavbar()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
     <!-- About -->
-    <div id="About" class="fade-in">About</div>
+    <div id="About" class="fade-in">
+        <div id="AboutContainer">
+            <div id="AboutSideBarParent">
+                <div id="AboutGreenSideBar">
+
+                </div>
+            </div>
+            <div id="AboutContentChild1">
+                test1
+            </div>
+            <div id="AboutContentChild2">
+                <div id="AboutHello">Hello</div>
+            </div>
+        </div>
+    </div>
     <!-- Projects -->
     <div id="Projects" class="hide">Projects</div>
     <!-- Contact -->
