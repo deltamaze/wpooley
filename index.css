@@ -70,8 +70,14 @@ i.myName {
 
 .AboutCenterLeft {
     grid-area: 2 / 2 / 3 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas: ". . ." ". . ." ". . .";
     background: #D1D8D5;
     margin-right: -25px;
+    text-align: center;
 }
 
 .AboutCenterRight {
