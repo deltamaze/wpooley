@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>William Pooley</title>
-    <link rel="stylesheet" href="./assets/all.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./assets/all.min.css" />
+    <link rel="stylesheet" href="index.css" />
     <link rel="shortcut icon" type="image/jpg" href="./assets/favicon.ico" />
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="navbarClass" id="navbar">
-        <a href="#" class="myName">
-            <span class="myName">
-                <i class="myName fa fa-square"></i>
-                William Pooley
-            </span>
-            <span>/ Software Engineer</span>
-        </a>
-        <a href="#About" onclick='linkClicked("About")'>About Me</a>
-        <a href="#Projects" onclick='linkClicked("Projects")'>Projects</a>
-        <a href="#Contact" onclick='linkClicked("Contact")'>Contact</a>
-        <a href="javascript:void(0);" class="icon" onclick="mobileToggleNavbar()">
-            <i class="fa fa-bars"></i>
-        </a>
+      <a href="#" class="myName">
+        <span class="myName">
+          <i class="myName fa fa-square"></i>
+          William Pooley
+        </span>
+        <span>/ Software Engineer</span>
+      </a>
+      <a href="#About" onclick='linkClicked("About")'>About Me</a>
+      <a href="#Projects" onclick='linkClicked("Projects")'>Projects</a>
+      <a href="#Contact" onclick='linkClicked("Contact")'>Contact</a>
+      <a href="javascript:void(0);" class="icon" onclick="mobileToggleNavbar()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
     <!-- About -->
     <div id="About" class="fade-in">
-        <div class="AboutContainer">
-            <div class="AboutSidebar"></div>
-            <div class="AboutCenterLeft">
-                William Pooley
-                <br>
-                Software Engineer
-            </div>
-            <div class="AboutCenterRight">
-                Hello
-            </div>
-            <div class="AboutFooter"></div>
+      <div class="AboutContainer">
+        <div class="AboutSidebar"></div>
+        <div class="AboutCenterLeft">
+          <div class="Selfie">
+            <img class="RoundedImg" src="./assets/selfie.webp">
+          </div>
+          <div class="Name">
+            William Pooley
+            <br />
+            Software Engineer
+          </div>
         </div>
+        <div class="AboutCenterRight">Hello</div>
+        <div class="AboutFooter"></div>
+      </div>
     </div>
     <!-- Projects -->
     <div id="Projects" class="hide">Projects</div>
     <!-- Contact -->
     <div id="Contact" class="hide">Contact</div>
     <script src="index.js"></script>
-</body>
-
+  </body>
 </html>
