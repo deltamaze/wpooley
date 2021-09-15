@@ -9,12 +9,12 @@ body {
   height: 100%;
 }
 
-.navbarClass {
+.NavbarClass {
   overflow: hidden;
   background-color: white;
 }
 
-.navbarClass a {
+.NavbarClass a {
   float: left;
   display: block;
   color: black;
@@ -27,30 +27,30 @@ body {
   font-size: 17px;
 }
 
-.navbarClass a:hover {
+.NavbarClass a:hover {
   color: #0050ff;
 }
 
-.navbarClass a.active {
+.NavbarClass a.active {
   background-color: white;
   color: black;
 }
 
-.navbarClass .icon {
+.NavbarClass .icon {
   display: none;
 }
 
-a.myName {
+a.NavbarName {
   padding-top: 27px;
   padding-bottom: 31px;
 }
 
-span.myName {
+span.NavbarName {
   font-weight: bold;
   font-size: 26px;
 }
 
-i.myName {
+i.NavbarName {
   color: #0050ff;
 }
 
@@ -77,20 +77,50 @@ i.myName {
   grid-template-areas:
     ". Selfie ."
     ". Name ."
-    ". . .";
+    "Footer Footer Footer";
   background: #d1d8d5;
   margin-right: -25px;
   text-align: center;
+  max-height: 524px;
+  box-shadow: 1px 2px 3px #cecece;
 }
 .Selfie {
   grid-area: Selfie;
   margin-top: 40px;
+  margin-bottom: 37px;
 }
+
 .RoundedImg {
-    border-radius: 50%;
-  }
+  border-radius: 50%;
+}
 .Name {
   grid-area: Name;
+  line-height: 1.2em;
+  text-align: center;
+  font-size: 27px;
+  font-weight: bold;
+}
+.BlueLine {
+  margin-bottom: 25px;
+  margin-top: 25px;
+  max-width: 52px;
+  min-width: 52px;
+  border-top: #0050ff;
+  border-width: 2px;
+  border-top-style: solid;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Title {
+  letter-spacing: 0.25em;
+  font-size: 16px;
+  font-weight:lighter
+}
+.Footer{
+  grid-area: Footer;
+  background-color: white;
+  margin-top: 30px;
 }
 .AboutCenterRight {
   grid-area: 2 / 3 / 3 / 4;
@@ -102,25 +132,25 @@ i.myName {
 }
 
 @media screen and (max-width: 1000px) {
-  .navbarClass a:not(:first-child) {
+  .NavbarClass a:not(:first-child) {
     display: none;
   }
-  .navbarClass a.icon {
+  .NavbarClass a.icon {
     float: right;
     display: block;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  .navbarClass.responsive {
+  .NavbarClass.responsive {
     position: relative;
   }
-  .navbarClass.responsive .icon {
+  .NavbarClass.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
   }
-  .navbarClass.responsive a {
+  .NavbarClass.responsive a {
     float: none;
     display: block;
     text-align: left;
