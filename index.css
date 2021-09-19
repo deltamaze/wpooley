@@ -15,8 +15,10 @@ body {
     position: fixed;
     width: 100vw;
     text-align: end;
+    z-index: 100;
 }
-.NavLinks{
+
+.NavLinks {
     float: right;
     margin-right: 50px;
 }
@@ -139,56 +141,65 @@ i.NavbarName {
     font-size: 25px;
     padding: 14px;
 }
-.Footer a{
+
+.Footer a {
     text-decoration: unset;
 }
+
 .Hello {
     margin-top: 40px;
     font-size: 100px;
     font-weight: bold;
 }
+
 .SubHello {
     margin-top: 10px;
     margin-bottom: 38px;
     font-size: 25px;
     font-weight: bold;
 }
-.AboutButtons{
+
+.AboutButtons {
     margin-bottom: 56px;
 }
 
-.AboutButtons a{
+.AboutButtons a {
     border-radius: 30px;
     border: solid;
     border-color: black;
-    color:black;
+    color: black;
     font-size: 14px;
     font-weight: bold;
     text-decoration: unset;
     border-width: 2px;
-    padding:10px;
+    padding: 10px;
     transition: 0.3s;
 }
+
 .AboutButtons a:hover {
     background-color: #0050ff;
-    color:white;
+    color: white;
     border-color: #0050ff;
 }
-#ResumeButton{
+
+#ResumeButton {
     background-color: #0050ff;
-    color:white;
+    color: white;
     border-color: #0050ff;
 }
-#ResumeButton:hover{
+
+#ResumeButton:hover {
     background-color: white;
-    color:black;
+    color: black;
 }
-.AboutParagraph{
-    font-size:17px;
+
+.AboutParagraph {
+    font-size: 17px;
 }
+
 i.BlackIcon {
     color: #000000;
-    margin-left:10px;
+    margin-left: 10px;
 }
 
 .AboutCenterRight {
@@ -199,48 +210,87 @@ i.BlackIcon {
 .AboutFooter {
     grid-area: 4 / 1 / 5 / 5;
 }
-.ProjectContainer {
-    display: grid; 
-    grid-template-columns: 0.6fr 1.9fr 0.5fr; 
-    grid-template-rows: 1.9fr 0.1fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-      "ProjectLeft ProjectCenter ProjectRight"
-      ". ProjectFooter ."; 
-  }
-  .ProjectLeft { 
-      grid-area: ProjectLeft; 
-      background: #a8b1ae;
-    }
-  .ProjectCenter { 
-      grid-area: ProjectCenter; 
-      text-align: center;
-      background: #a8b1ae;
-      padding-top: 125px;
-    }
-  .ProjectRight { 
-      grid-area: ProjectRight; 
-      background: #a8b1ae;
-    }
-  .ProjectFooter { grid-area: ProjectFooter; }
 
-span.ProjectTitle {
+.ProjectContainer {
+    display: grid;
+    grid-template-columns: 0.6fr 1.9fr 0.5fr;
+    grid-template-rows: 1.9fr 0.1fr;
+    gap: 0px 0px;
+    grid-template-areas: "ProjectLeft ProjectCenter ProjectRight" ". ProjectFooter .";
+}
+
+.ProjectLeft {
+    grid-area: ProjectLeft;
+    background: #a8b1ae;
+}
+
+.ProjectCenter {
+    grid-area: ProjectCenter;
+    text-align: center;
+    background: #a8b1ae;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.ProjectRight {
+    grid-area: ProjectRight;
+    background: #a8b1ae;
+}
+
+.ProjectFooter {
+    grid-area: ProjectFooter;
+}
+
+span.ProjectPageTitle {
     font-weight: bold;
     font-size: 26px;
 }
 
-i.ProjectTitle {
+i.ProjectPageTitle {
     color: #0050ff;
 }
-.ProjectBlock{
+
+.ProjectBlock {
     text-align: left;
+    width: 750px;
+    height: 404px;
+    margin-top: 100px;
+    background: white;
+    box-shadow: 3px 5px 10px #868686;
+}
+
+.ProjectText {
+    float: left;
+    position: relative;
+    width: 399px;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.ProjectTitle {
+    color: #0050ff;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.ProjectDescription {
+    font-size: 17px;
+    margin-top: 40px;
+}
+
+.ProjectImage {
+    float: right;
+    position: relative;
+    width: 321px;
 }
 
 @media screen and (max-width: 1000px) {
     /* .NavbarClass a:not(:first-child) {
         display: none;
     } */
-    .NavLinks{
+    .NavLinks {
         display: none;
         float: left;
     }
