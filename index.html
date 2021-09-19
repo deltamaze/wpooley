@@ -1,62 +1,118 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>William Pooley</title>
     <link rel="stylesheet" href="./assets/all.min.css" />
     <link rel="stylesheet" href="index.css" />
     <link rel="shortcut icon" type="image/jpg" href="./assets/favicon.ico" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="NavbarClass" id="navbar">
-        <a href="#" class="NavbarName">
-            <span class="NavbarName">
-                <i class="NavbarName fa fa-square"></i>
-                William Pooley
-            </span>
-            <span>/ Software Engineer</span>
-        </a>
+      <a href="#" class="NavbarName">
+        <span class="NavbarName">
+          <i class="NavbarName fa fa-square"></i>
+          William Pooley
+        </span>
+        <span>/ Software Engineer</span>
+      </a>
+      <span class="NavLinks">
         <a href="#About" onclick='linkClicked("About")'>About Me</a>
         <a href="#Projects" onclick='linkClicked("Projects")'>Projects</a>
         <a href="#Contact" onclick='linkClicked("Contact")'>Contact</a>
-        <a href="javascript:void(0);" class="icon" onclick="mobileToggleNavbar()">
-            <i class="fa fa-bars"></i>
-        </a>
+      </span>
+      <a href="javascript:void(0);" class="icon" onclick="mobileToggleNavbar()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
     <div class="NavbarBottomPadding"></div>
     <!-- About -->
     <div id="About" class="fade-in">
-        <div class="AboutContainer">
-            <div class="AboutSidebar"></div>
-            <div class="AboutCenterLeft">
-                <div class="Selfie">
-                    <img class="RoundedImg" src="./assets/selfie.webp">
-                </div>
-                <div class="Name">
-                    William <br /> Pooley
-                    <div class="BlueLine"></div>
-                    <div class="Title">Software Engineer</div>
-                </div>
-                <div class="Footer">
-                    <a href="https://github.com/deltamaze/" target="_blank">
-                        <span>
-                            <i class="BlackIcon fab fa-github"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <div class="AboutCenterRight">Hello</div>
-            <div class="AboutFooter">
-
-            </div>
+      <div class="AboutContainer">
+        <div class="AboutSidebar"></div>
+        <div class="AboutCenterLeft">
+          <div class="Selfie">
+            <img class="RoundedImg" src="./assets/selfie.webp" />
+          </div>
+          <div class="Name">
+            William <br />
+            Pooley
+            <div class="BlueLine"></div>
+            <div class="Title">Software Engineer</div>
+          </div>
+          <div class="Footer">
+            <a href="https://github.com/deltamaze/" target="_blank">
+              <span>
+                <i class="BlackIcon fab fa-github"></i>
+              </span>
+            </a>
+            <a href="https://www.linkedin.com/in/wcpooley/" target="_blank">
+              <span>
+                <i class="BlackIcon fab fa-linkedin-in"></i>
+              </span>
+            </a>
+            <a
+              href="https://stackoverflow.com/users/3562204/will"
+              target="_blank"
+            >
+              <span>
+                <i class="BlackIcon fab fa-stack-overflow"></i>
+              </span>
+            </a>
+          </div>
         </div>
+        <div class="AboutCenterRight">
+          <div class="Hello">Hello</div>
+          <div class="SubHello">Here's who I am & what I do</div>
+          <div class="AboutButtons">
+            <a
+              href="./assets/wpooley_resume.pdf"
+              target="_blank"
+              id="ResumeButton"
+              >Resume</a
+            >
+            <a href="#Projects" onclick='linkClicked("Projects")'>Projects</a>
+            <a href="#Contact" onclick='linkClicked("Contact")'>Contact</a>
+          </div>
+          <div class="AboutParagraph">
+            Software Engineer with 10 years of experience bringing the technical
+            aspects of Dotnet/SQL development to various industries.
+          </div>
+        </div>
+        <div class="AboutFooter"></div>
+      </div>
     </div>
     <!-- Projects -->
-    <div id="Projects" class="hide">Projects</div>
+    <div id="Projects" class="hide">
+      <div class="ProjectContainer">
+        <div class="ProjectLeft"></div>
+        <div class="ProjectCenter">
+          <span class="ProjectTitle">
+            <i class="ProjectTitle fa fa-square"></i>
+            Projects
+          </span>
+          <div class="Planner ProjectBlock">
+            <div class="PlannerImage">
+              <img src="./assets/PlannerImg.webp" />
+            </div>
+            <div class="PlannerTitle">Simple Planner</div>
+            <div class="PlannerDescription">
+              Built on the Firebase/React web app to plan your day.<br />
+              Three way binding, each keystroke is debounced and backed up with
+              a websocket<br />
+              connection to the database.<br /><br />
+              View Site / View Code
+            </div>
+          </div>
+          <div class="Timer ProjectBlock"></div>
+          <div class="ChromeExt ProjectBlock"></div>
+        </div>
+        <div class="ProjectRight"></div>
+        <div class="ProjectFooter"></div>
+      </div>
+    </div>
     <!-- Contact -->
     <div id="Contact" class="hide">Contact</div>
     <script src="index.js"></script>
-</body>
-
+  </body>
 </html>
