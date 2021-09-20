@@ -213,6 +213,7 @@ i.BlackIcon {
 
 .ProjectContainer {
     display: grid;
+    /* background: #a8b1ae; */
     grid-template-columns: 0.6fr 1.9fr 0.5fr;
     grid-template-rows: 1.9fr 0.1fr;
     gap: 0px 0px;
@@ -239,6 +240,7 @@ i.BlackIcon {
 
 .ProjectFooter {
     grid-area: ProjectFooter;
+    background: white;
 }
 
 span.ProjectPageTitle {
@@ -257,6 +259,10 @@ i.ProjectPageTitle {
     margin-top: 100px;
     background: white;
     box-shadow: 3px 5px 10px #868686;
+    left: 50%;
+    /* right: 50%; */
+    position: relative;
+    margin-left: -375px;
 }
 
 .ProjectText {
