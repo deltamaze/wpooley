@@ -291,6 +291,9 @@ i.ProjectPageTitle {
     position: relative;
     width: 321px;
 }
+.ProjectLink {
+    color: black;
+}
 
 @media screen and (max-width: 1000px) {
     /* .NavbarClass a:not(:first-child) {
