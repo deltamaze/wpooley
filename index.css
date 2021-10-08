@@ -223,6 +223,7 @@ i.BlackIcon {
 .ProjectLeft {
     grid-area: ProjectLeft;
     background: #a8b1ae;
+    margin-right: -1px;
 }
 
 .ProjectCenter {
@@ -236,6 +237,7 @@ i.BlackIcon {
 .ProjectRight {
     grid-area: ProjectRight;
     background: #a8b1ae;
+    margin-left: -1px;
 }
 
 .ProjectFooter {
@@ -308,6 +310,7 @@ i.ProjectPageTitle {
 .ContactLeft {
     grid-area: ContactLeft;
     background: #a8b1ae;
+    margin-right: -1px;
 }
 
 .ContactCenter {
@@ -321,6 +324,7 @@ i.ProjectPageTitle {
 .ContactRight {
     grid-area: ContactRight;
     background: #a8b1ae;
+    margin-left: -1px;
 }
 
 .ContactFooter {
