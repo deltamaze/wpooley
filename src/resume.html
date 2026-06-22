@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>William Pooley — Resume</title>
+    <link rel="shortcut icon" type="image/jpg" href="./assets/favicon.ico" />
+    <style>
+        :root {
+            /* Swap this single value to re-accent the whole resume (e.g. amber: #b5651d) */
+            --accent: #1f4e79;
+            --accent-soft: #2e6da4;
+            --ink: #222;
+            --muted: #5a5f66;
+            --rule: #d7dbe0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: #e9ecef;
+            font-family: "Calibri", "Segoe UI", Helvetica, Arial, sans-serif;
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---- Screen toolbar (hidden when printing) ---- */
+        .toolbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            z-index: 50;
+        }
+
+        .toolbar a {
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .toolbar a:hover {
+            color: var(--accent);
+        }
+
+        .btn-pdf {
+            border: 2px solid var(--accent);
+            background: var(--accent);
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 9px 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .btn-pdf:hover {
+            background: #fff;
+            color: var(--accent);
+        }
+
+        /* ---- The page sheet ---- */
+        .sheet {
+            width: 8.5in;
+            min-height: 11in;
+            margin: 80px auto 40px;
+            padding: 0.5in 0.55in;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        header.resume-head {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 14px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 0.3px;
+            color: var(--accent);
+        }
+
+        .subtitle {
+            color: var(--ink);
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .contact {
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .contact a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            color: var(--accent);
+        }
+
+        .contact span {
+            white-space: nowrap;
+        }
+
+        .contact .sep {
+            color: var(--rule);
+            margin: 0 8px;
+        }
+
+        /* ---- Two-column body ---- */
+        .body {
+            display: grid;
+            grid-template-columns: 1.95fr 1fr;
+            gap: 26px;
+        }
+
+        h2.section {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            border-bottom: 1.5px solid var(--accent);
+            padding-bottom: 4px;
+            margin: 0 0 10px;
+        }
+
+        section {
+            margin-bottom: 16px;
+        }
+
+        .job {
+            margin-bottom: 12px;
+        }
+
+        .job-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .job-title {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .job-title .co {
+            color: var(--ink);
+        }
+
+        .job-meta {
+            font-size: 11px;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .job-loc {
+            font-size: 11px;
+            color: var(--muted);
+            font-style: italic;
+            margin: 1px 0 5px;
+        }
+
+        ul {
+            margin: 4px 0 0;
+            padding-left: 16px;
+        }
+
+        li {
+            font-size: 11.5px;
+            line-height: 1.42;
+            margin-bottom: 3px;
+        }
+
+        .sidebar h2.section {
+            margin-top: 0;
+        }
+
+        .skill-group {
+            font-size: 11.5px;
+            line-height: 1.5;
+            margin-bottom: 9px;
+        }
+
+        .skill-group strong {
+            display: block;
+            color: var(--ink);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1px;
+        }
+
+        .edu strong {
+            font-size: 12.5px;
+        }
+
+        .edu .small,
+        .cert .small {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .cert div {
+            font-size: 11.5px;
+            margin-bottom: 5px;
+        }
+
+        .cert .yr {
+            color: var(--muted);
+            font-size: 10.5px;
+        }
+
+        /* ---- Print ---- */
+        @page {
+            size: letter;
+            margin: 0;
+        }
+
+        @media print {
+            html,
+            body {
+                background: #fff;
+            }
+
+            .toolbar {
+                display: none !important;
+            }
+
+            .sheet {
+                margin: 0;
+                box-shadow: none;
+                width: auto;
+                min-height: auto;
+                padding: 0.45in 0.5in;
+            }
+
+            a {
+                color: var(--ink) !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toolbar">
+        <a href="./index.html">&larr; wpooley.com</a>
+        <button class="btn-pdf" onclick="window.print()">Download PDF</button>
+    </div>
+
+    <main class="sheet">
+        <header class="resume-head">
+            <h1>William Pooley</h1>
+            <div class="subtitle">Backend Software Engineer</div>
+            <div class="contact">
+                <span><a href="mailto:contact@wpooley.com">contact@wpooley.com</a></span>
+                <span class="sep">|</span>
+                <span><a href="https://wpooley.com">wpooley.com</a></span>
+                <span class="sep">|</span>
+                <span><a href="https://www.linkedin.com/in/wcpooley/">linkedin.com/in/wcpooley</a></span>
+                <span class="sep">|</span>
+                <span><a href="https://github.com/deltamaze">github.com/deltamaze</a></span>
+                <span class="sep">|</span>
+                <span>Corpus Christi, TX</span>
+            </div>
+        </header>
+
+        <div class="body">
+            <!-- ===== Main column ===== -->
+            <div class="main">
+                <section>
+                    <h2 class="section">Summary</h2>
+                    <p style="font-size:12px;line-height:1.5;margin:0;">
+                        Backend software engineer with 10+ years building systems that move data and money at
+                        scale &mdash; from cloud platform services at Microsoft Azure to federal healthcare
+                        interoperability infrastructure. Strong in .NET / C#, distributed systems, APIs, and the
+                        Azure platform; comfortable owning a feature from architecture through GA and on-call.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="section">Experience</h2>
+
+                    <div class="job">
+                        <div class="job-head">
+                            <span class="job-title"><span class="co">DentaQuest</span> (a Sun Life company) &mdash; Senior Software Engineer</span>
+                            <span class="job-meta">Apr 2023 &ndash; Present</span>
+                        </div>
+                        <div class="job-loc">Remote</div>
+                        <ul>
+                            <li>Lead architect for the company's CMS interoperability compliance program across two
+                                federal mandates (CMS-9115, CMS-0057-F), driving delivery ahead of the Jan 2027 deadline.</li>
+                            <li>Architected a custom FHIR Fa&ccedil;ade in ASP.NET Core querying the in-house claims SQL
+                                Server in real time (Firely .NET SDK + Dapper), replacing Azure FHIR Server and eliminating ETL lag.</li>
+                            <li>Technical lead for the Patient Access API: designed the full SMART-on-FHIR auth flow &mdash;
+                                Azure Function authorization proxy, Patient Picker app, Okta integration, and consent management.</li>
+                            <li>Built end-to-end appeals workflow automation that reduced appeal review time ~70%, integrating
+                                the customer-service platform with the claims system and auto-generating decision letters.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-head">
+                            <span class="job-title"><span class="co">Microsoft</span> &mdash; Senior Software Engineer</span>
+                            <span class="job-meta">Sep 2021 &ndash; Mar 2023</span>
+                        </div>
+                        <div class="job-loc">Austin, TX</div>
+                        <ul>
+                            <li>Led the General Availability release of GraphQL support in Azure API Management (APIM),
+                                coordinating telemetry, docs, and SDK surfaces with the core engineering team.</li>
+                            <li>Owned the GraphQL passthrough implementation (proxying queries to backend services) and
+                                designed WebSocket subscription support enabling real-time GraphQL traffic through APIM.</li>
+                            <li>Extended the Azure PowerShell libraries for GraphQL API management and instrumented
+                                end-to-end telemetry for GA operational readiness.</li>
+                            <li>Maintained health and compliance of the compute fleet running customer API gateways;
+                                participated in on-call incident response.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-head">
+                            <span class="job-title"><span class="co">Driscoll Health Plan</span> &mdash; Data Integrity Analyst III</span>
+                            <span class="job-meta">Apr 2018 &ndash; Sep 2021</span>
+                        </div>
+                        <div class="job-loc">Corpus Christi, TX</div>
+                        <ul>
+                            <li>Built a Blazor Server-Side PWA for administrative control of application extracts and
+                                web reports surfacing data discrepancies across systems.</li>
+                            <li>Developed C#/SQL pipelines for HHSC Financial Statistical Reports, provider EOP documents,
+                                credentialing extracts (P-Files), and third-party vendor data feeds.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-head">
+                            <span class="job-title"><span class="co">Sunoco</span> &mdash; Senior Software Developer</span>
+                            <span class="job-meta">Mar 2014 &ndash; Mar 2018</span>
+                        </div>
+                        <div class="job-loc">Corpus Christi, TX</div>
+                        <ul>
+                            <li>Built a C# pipeline ingesting daily transaction-log XML from 700 retail store computers
+                                into a central SQL Server for operational and accounting reporting.</li>
+                            <li>Managed an iOS/Objective-C employee learning app syncing assessment results from a local
+                                SQLite DB to a central server.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-head">
+                            <span class="job-title"><span class="co">Regency Nursing &amp; Rehabilitation</span> &mdash; Database Administrator</span>
+                            <span class="job-meta">Oct 2011 &ndash; Feb 2014</span>
+                        </div>
+                        <div class="job-loc">Victoria, TX</div>
+                        <ul>
+                            <li>SQL Server administration (maintenance plans, backups) and SSRS reporting for Long-Term
+                                Care analytics, HR, and compliance.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ===== Sidebar ===== -->
+            <div class="sidebar">
+                <section>
+                    <h2 class="section">Skills</h2>
+                    <div class="skill-group">
+                        <strong>Languages</strong>
+                        C#, JavaScript, SQL, T-SQL
+                    </div>
+                    <div class="skill-group">
+                        <strong>Backend</strong>
+                        .NET / ASP.NET Core, REST APIs, GraphQL, WebSockets, Microservices, Dapper, Entity Framework
+                    </div>
+                    <div class="skill-group">
+                        <strong>Cloud &amp; Ops</strong>
+                        Azure, API Management, Azure Functions, AWS (Lambda, DynamoDB, API Gateway), Observability, On-Call
+                    </div>
+                    <div class="skill-group">
+                        <strong>Data</strong>
+                        SQL Server, Data Pipelines / ETL, SSRS, OLAP / Data Warehouse
+                    </div>
+                    <div class="skill-group">
+                        <strong>Domain</strong>
+                        FHIR / Healthcare Interoperability, SMART on FHIR, OAuth / OIDC
+                    </div>
+                    <div class="skill-group">
+                        <strong>Frontend</strong>
+                        Blazor, React, HTML / CSS
+                    </div>
+                </section>
+
+                <section class="edu">
+                    <h2 class="section">Education</h2>
+                    <strong>B.S., Computer Science</strong><br />
+                    <span class="small">University of Houston&ndash;Victoria<br />
+                        Summa Cum Laude &middot; Dec 2011</span>
+                </section>
+
+                <section class="cert">
+                    <h2 class="section">Certifications</h2>
+                    <div>Epic Chronicles Database Programmer <span class="yr">&middot; 2019</span></div>
+                    <div>Epic Caboodle Development <span class="yr">&middot; 2018</span></div>
+                    <div>Epic Caboodle-Clarity Development <span class="yr">&middot; 2018</span></div>
+                    <div>ITIL Foundation &mdash; IT Service Management</div>
+                </section>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

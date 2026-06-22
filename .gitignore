@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# AWS SAM build artifacts
+.aws-sam/
+
+# Local env / secrets (never commit — use AWS Secrets Manager / GitHub OIDC)
+.env
+.env.*
+samconfig.local.toml
